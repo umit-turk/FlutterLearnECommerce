@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,8 +28,32 @@ class MyApp extends StatelessWidget {
                   //Banner
                   buildBanner(),
 
-                  //Butonlar
-
+                  // Butonlar
+                  Padding(
+                    padding: EdgeInsets.only(top: 48),
+                    child: Row(
+                      children: [
+                        //ilk eleman
+                        Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 19, vertical: 22),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xFFE0ECF8)),
+                              child: Icon(
+                                Icons.menu,
+                                color: Color(0xFF0001FC),
+                                size: 18,
+                              ),
+                            ),
+                            Text('Categories'),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
                   //sales
                 ],
               ),
