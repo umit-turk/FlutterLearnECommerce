@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,103 +16,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Scaffold(
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //Baslik
-                  buildBaslik(),
-
-                  //Banner
-                  buildBanner(),
-
-                  // Butonlar
-                  Padding(
-                    padding: EdgeInsets.only(top: 48),
-                    child: Row(
-                      children: [
-                        //ilk eleman
-                        Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 19, vertical: 22),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(0xFFE0ECF8)),
-                              child: Icon(
-                                Icons.menu,
-                                color: Color(0xFF0001FC),
-                                size: 18,
-                              ),
-                            ),
-                            Text('Categories'),
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                  //sales
-                ],
-              ),
-            ),
-          ),
-        ));
-  }
-
-  Widget buildBanner() {
-    return Padding(
-      padding: EdgeInsets.only(top: 24.0),
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.only(left: 24, right: 36, top: 14, bottom: 18),
-        decoration: BoxDecoration(
-            color: Color(0xFF0001FC), borderRadius: BorderRadius.circular(6)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Bose Home Speaker',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  'USD 279',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
-            Image.asset('assets/image/brocoli.png')
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildBaslik() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24.0),
-      child: Text(
-        'Home',
-        style: TextStyle(
-            fontSize: 32,
-            color: Color(0xFF0A1034),
-            fontWeight: FontWeight.bold),
-      ),
-    );
+        home: HomaPage());
   }
 }
