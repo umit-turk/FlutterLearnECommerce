@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/categories.dart';
 import 'package:flutter_application_1/components/bottomNavigation.dart';
+import 'package:flutter_application_1/components/label.dart';
 
 class HomaPage extends StatefulWidget {
   const HomaPage({Key? key}) : super(key: key);
@@ -130,7 +131,7 @@ class _HomaPageState extends State<HomaPage> {
             ),
 
             //BOTTTOM NAVIGATION BAR
-            bottomNavigationBar(),
+            bottomNavigationBar("home"),
           ],
         ),
       ),
@@ -241,15 +242,7 @@ Container buildSalesItem({
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // 50%
-        Container(
-          padding: EdgeInsets.all(4),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(2), color: Color(0xFFE0ECF8)),
-          child: Text(
-            discount,
-            style: TextStyle(color: Color(0xFF1F53E4)),
-          ),
-        ),
+        label(discount),
 
         //telefon resmi
         SizedBox(height: 22),

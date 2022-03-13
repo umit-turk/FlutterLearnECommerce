@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/bottomNavigation.dart';
+import 'package:flutter_application_1/components/category.dart';
+import 'package:flutter_application_1/components/header.dart';
 
 class CategoriesPage extends StatelessWidget {
   final List<String> categories = [
@@ -26,34 +28,15 @@ class CategoriesPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 29,
-                ),
-                //Geri ikonu
-                Icon(
-                  Icons.arrow_back,
-                  color: Color(0xFF0A1034),
-                  size: 27,
-                ),
-
-                //kategori baslik
-                SizedBox(
-                  height: 24,
-                ),
-                Text(
-                  "Categories",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: Color(0xFF0A1034)),
-                ),
+                //Header
+                header("Categories", context),
                 SizedBox(height: 16),
 
                 //kategoriler
                 Expanded(
                   child: ListView(
                     children: categories
-                        .map((String title) => buildCategory(title))
+                        .map((String title) => buildCategory(title, context))
                         .toList(),
                   ),
                 )
@@ -61,33 +44,40 @@ class CategoriesPage extends StatelessWidget {
             ),
           ),
           //bottomNavBar
-          bottomNavigationBar()
+          bottomNavigationBar("search")
         ],
       )),
     );
   }
 
-  Widget buildCategory(String title) {
-    return Container(
-      padding: EdgeInsets.all(24.0),
-      margin: EdgeInsets.only(bottom: 16),
-      width: double.infinity,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(6),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.25),
-              blurRadius: 4,
-              offset: Offset(0, 4),
-            )
-          ]),
-      child: Text(
-        title,
-        style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Color(0xFF0A1034)),
+  Widget buildCategory(String title, context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CategoryPage(title);
+        }));
+      },
+      child: Container(
+        padding: EdgeInsets.all(24.0),
+        margin: EdgeInsets.only(bottom: 16),
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.25),
+                blurRadius: 4,
+                offset: Offset(0, 4),
+              )
+            ]),
+        child: Text(
+          title,
+          style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF0A1034)),
+        ),
       ),
     );
   }
